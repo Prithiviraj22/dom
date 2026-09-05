@@ -1,15 +1,85 @@
 <html>
 
 <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+            text-align: center;
+        }
 
+        #In {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
+        #Btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #Btn:hover {
+            background-color: darkgreen;
+        }
+
+        #error {
+            color: red;
+            font-size: 14px;
+        }
+
+        #Task {
+            width: 450px;
+            margin: 20px auto;
+            padding: 0;
+            text-align: left;
+        }
+
+        #Task li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px gray;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #Task span {
+            flex: 1;
+            font-size: 17px;
+        }
+
+        #Task button {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #Task button:first-of-type {
+            background-color: blue;
+        }
+
+        #Task button:last-of-type {
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
 
-
     <input type="text" id="In">
-
     <button id="Btn">Add Task</button>
 
     <p id="error"></p>
@@ -23,18 +93,17 @@
         let Task = document.querySelector("#Task");
         let error = document.querySelector("#error");
 
-        Btn.addEventListener("click", function f1 () {
+        Btn.addEventListener("click", function f1() {
 
             let task = input.value;
-             input.value = "";
-             error.innerText = "";
+            input.value = "";
+            error.innerText = "";
 
             if (task == "") {
 
-             error.innerText = "Please enter a task";
+                error.innerText = "Please enter a task";
                 return;
             }
-
 
             let li = document.createElement("li");
 
@@ -47,24 +116,24 @@
             let delete1 = document.createElement("button");
             delete1.innerText = "Delete";
 
-              li.appendChild(taskName);
-              li.appendChild(complete);
-              li.appendChild(delete1);
+            li.appendChild(taskName);
+            li.appendChild(complete);
+            li.appendChild(delete1);
 
             Task.appendChild(li);
 
-            complete.addEventListener("click", function f1 () {
+            complete.addEventListener("click", function f1() {
                 taskName.style.textDecoration = "line-through";
             });
 
-            delete1.addEventListener("click", function f1 () {
+            delete1.addEventListener("click", function f1() {
                 li.remove();
             });
-            
-
 
         });
+
     </script>
 
 </body>
+
 </html>
